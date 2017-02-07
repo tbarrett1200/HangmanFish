@@ -77,7 +77,9 @@ public class Dictionary {
 		    Collections.sort(dictionaryList);
 		    
 		    // move to an array for faster access
-		    dictionary = (String[]) dictionaryList.toArray();
+		    dictionary = new String[5];
+		    dictionaryList.toArray(dictionary);
+		    
 		} catch (FileNotFoundException e) {
 			System.out.println("Dictionary file not found:" + e);
 	    }
