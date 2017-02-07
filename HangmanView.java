@@ -19,5 +19,6 @@ public class HangmanView extends JFrame {
 	public HangmanView(HangmanController controller) {
 		add(canvas, BorderLayout.CENTER);
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+		
     }
 }
