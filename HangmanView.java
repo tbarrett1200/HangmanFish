@@ -8,4 +8,12 @@ import acm.program.GraphicsProgram;
 
 public class HangmanView extends GraphicsProgram {
 
+    public static void main(String[] args) {
+	new HangmanView().start(args);
+    }
+
+    @Override
+    public void init() {
+	
+    }
 }
