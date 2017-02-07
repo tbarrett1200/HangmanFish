@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 /*
  * File: HangmanController.java
  * Author: Thomas Barrett
@@ -10,7 +12,10 @@ public class HangmanController {
     public HangmanModel model = new HangmanModel(this);
     
     public HangmanController() {
-	
+	view.setSize(600, 400);
+	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	view.setLocationRelativeTo(null);
+	view.setVisible(true);
     }
     
     public static void main(String[] args) {
