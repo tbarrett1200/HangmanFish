@@ -1,4 +1,4 @@
-import acm.program.GraphicsProgram;
+import javax.swing.JFrame;
 
 /*
  * File: HangmanView.java
@@ -6,14 +6,9 @@ import acm.program.GraphicsProgram;
  * Created: Feb 7, 2017
  */
 
-public class HangmanView extends GraphicsProgram {
+public class HangmanView extends JFrame {
 
-    public static void main(String[] args) {
-	new HangmanView().start(args);
-    }
-
-    @Override
-    public void init() {
+    public HangmanView(HangmanController controller) {
 	
     }
 }

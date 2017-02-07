@@ -6,4 +6,7 @@
 
 public class HangmanModel {
 
+    public HangmanModel(HangmanController controller) {
+	
+    }
 }
