@@ -1,3 +1,5 @@
+import acm.program.GraphicsProgram;
+
 /*
  * File: HangmanView.java
  * Author: Thomas Barrett
