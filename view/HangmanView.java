@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -24,6 +25,9 @@ public class HangmanView extends JFrame {
 	private GCanvas canvas = new GCanvas();
 	private JLabel title = new JLabel("HANGMAN");
 	private JLabel subtitle = new JLabel("The Fish Edition");
+	private JLabel statusMessage = new JLabel("Guess a letter");
+	private JButton newGameButton = new JButton("New Game");
+	private HangmanGraphics graphic = new HangmanGraphics(100,300);
 	
 	private HangmanViewController controller;
 	
@@ -33,8 +37,18 @@ public class HangmanView extends JFrame {
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		
 		//the title
-		canvas.add(title, 300,200);
-		canvas.add(subtitle,300,220);
+		
+		title.setFont(new Font("titleFont",Font.BOLD,50));
+		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
+		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
+		
+		
+		canvas.add(title, 300,25);
+		canvas.add(subtitle,300,75);
+		add(newGameButton, BorderLayout.SOUTH);
+		graphic.setVisible(true);
+		canvas.add(graphic,50,50);
+		//canvas.add(statusMessage, CANVAS_WIDTH/2, 300); for now
 		
     }
 }
