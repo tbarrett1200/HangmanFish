@@ -39,7 +39,27 @@ public class Dictionary {
 	 * @param filename   filename of the file containing the dictionary
 	 */
 	public Dictionary(String filename) {
-		this(filename, -1, false);
+		try {
+			File file = new File(filename)
+					;
+		    @SuppressWarnings("resource")
+			Scanner sc = new Scanner(file);
+		    
+			ArrayList<String> dictionaryList = new ArrayList<String>();
+		    
+		    while (sc.hasNextLine()) {
+		        String word = sc.nextLine();
+		        dictionaryList.add(word);
+		    }
+		    
+		    
+		    dictionary = new String[dictionaryList.size()];
+		    // move to an array for faster access
+		    dictionary = dictionaryList.toArray(dictionary);
+		    
+		} catch (FileNotFoundException e) {
+			System.out.println("Dictionary file not found:" + e);
+	    }
 	}
 	
 	
@@ -57,9 +77,10 @@ public class Dictionary {
 			ArrayList<String> dictionaryList = new ArrayList<String>();
 		    int numWords = 0;
 		    
-		    while (sc.hasNextLine() && (isRandom || numWords < maxWords)) {
+		    while (sc.hasNextLine() && (isRandom || numWords < maxWords || maxWords<0)) {
 		        String word = sc.nextLine();
 		        dictionaryList.add(word);
+		        System.out.println(word);
 				numWords++;
 		    }
 		    
@@ -77,8 +98,7 @@ public class Dictionary {
 		    Collections.sort(dictionaryList);
 		    
 		    // move to an array for faster access
-		    dictionary = new String[5];
-		    dictionaryList.toArray(dictionary);
+		    dictionary = (String[]) dictionaryList.toArray();
 		    
 		} catch (FileNotFoundException e) {
 			System.out.println("Dictionary file not found:" + e);

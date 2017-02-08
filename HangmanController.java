@@ -12,13 +12,33 @@ public class HangmanController {
     public HangmanModel model = new HangmanModel(this);
     
     public HangmanController() {
-	view.setSize(600, 400);
-	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	view.setLocationRelativeTo(null);
-	view.setVisible(true);
+    	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	view.setLocationRelativeTo(null);
+    	view.setVisible(true);
     }
     
+    //******** Model Events *******//
+    
+    public void didGuessCorrectly() {
+    	
+    }
+    
+    public void didGuessIncorrectly() {
+
+    }
+    
+    public void didWinGame() {
+    	
+    }
+    
+    public void didLoseGame() {
+
+    }
+      
+    //******* View Events *******//
+    
+    
     public static void main(String[] args) {
-	new HangmanController();
+    	new HangmanController();
     }
 }
