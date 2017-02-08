@@ -1,3 +1,5 @@
+package view;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -6,23 +8,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import acm.graphics.GCanvas;
+import controller.HangmanViewController;
 
-/*
- * File: HangmanView.java
- * Author: Thomas Barrett
- * Created: Feb 7, 2017
+/**
+ * A hang-man graphical user interface
+ * @author Serena Riback
+ * @since February 7th, 2017
  */
-
+@SuppressWarnings("serial")
 public class HangmanView extends JFrame {
 
-	public final int CANVAS_WIDTH = 600;
-	public final int CANVAS_HEIGHT = 400;
+	private final int CANVAS_WIDTH = 600;
+	private final int CANVAS_HEIGHT = 400;
 	
-	public GCanvas canvas = new GCanvas();
+	private GCanvas canvas = new GCanvas();
 	private JLabel title = new JLabel("HANGMAN");
 	private JLabel subtitle = new JLabel("The Fish Edition");
 	
-	public HangmanView(HangmanController controller) {
+	private HangmanViewController controller;
+	
+	public HangmanView(HangmanViewController controller) {
+		this.controller = controller;
 		add(canvas, BorderLayout.CENTER);
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		

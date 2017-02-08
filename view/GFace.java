@@ -1,3 +1,4 @@
+package view;
 /** GFace.java:  This file contains the graphics for building a face.
  * @author Dr. Mark A. Jones
  */

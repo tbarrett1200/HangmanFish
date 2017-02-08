@@ -1,3 +1,4 @@
+package view;
 /**
  * The graphical interface required by a HangmanView.
  * @author Mark Jones

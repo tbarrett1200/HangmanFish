@@ -1,3 +1,4 @@
+package view;
 /** HangmanGraphics.java:  This file contains the graphics for building a hangman.
  * @author Dr. Mark Jones
  */
