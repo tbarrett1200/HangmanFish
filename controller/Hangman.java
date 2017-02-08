@@ -45,6 +45,9 @@ public class Hangman implements HangmanModelController, HangmanViewController {
 
     }
       
+    public int maximumGuesses() {
+	return view.getHangman().getMaxParts();
+    }
     //********** View Events **********//
     
     @Override

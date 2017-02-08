@@ -51,4 +51,8 @@ public class HangmanView extends JFrame {
 		//canvas.add(statusMessage, CANVAS_WIDTH/2, 300); for now
 		
     }
+	
+	public ProgressivelyDrawable getHangman() {
+	    return graphic;
+	}
 }
