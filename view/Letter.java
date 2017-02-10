@@ -10,9 +10,11 @@ import acm.graphics.GOval;
 
 public class Letter extends GCompound {
 
+	GOval bubble;
+	
 	public Letter(int width, int height, char l){
 		super();
-		GOval bubble = new GOval(width, height);
+		bubble = new GOval(width, height);
 		GLabel letter = new GLabel(Character.toString(l));
 		
 		bubble.setColor(Color.BLACK);
@@ -23,6 +25,11 @@ public class Letter extends GCompound {
 		letter.setColor(Color.BLACK);
 		letter.setFont(new Font("font", Font.BOLD, 14));
 		add(letter,bubble.getWidth()/4,bubble.getHeight()-bubble.getHeight()/4);
+	}
+	
+	public void grayOut(){
+		bubble.setFillColor(Color.LIGHT_GRAY);
+		bubble.setFilled(true);
 	}
 	
 }

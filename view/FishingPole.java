@@ -1,5 +1,7 @@
 package view;
 
+import acm.graphics.GCompound;
+
 /** 
  * A Graphical representation that 
  * @author Thomas Barrett

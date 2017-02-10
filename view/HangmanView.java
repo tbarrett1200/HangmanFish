@@ -28,6 +28,7 @@ public class HangmanView extends JFrame {
 	private JLabel statusMessage = new JLabel("Guess a letter");
 	private JButton newGameButton = new JButton("New Game");
 	private FishingPole graphic = new FishingPole(100,300);
+	private GuessedLetters letters = new GuessedLetters(CANVAS_WIDTH);
 	
 	private HangmanViewController controller;
 	
@@ -43,11 +44,11 @@ public class HangmanView extends JFrame {
 		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
 		
 		
-		canvas.add(title, 300,25);
-		canvas.add(subtitle,300,75);
+		canvas.add(title, 280,25);
+		canvas.add(subtitle,280,75);
 		add(newGameButton, BorderLayout.SOUTH);
 		
-		//canvas.add(a = new Letter(20,20, 'a'), 300,110);
+		canvas.add(letters, 280,110);
 		
 		//graphic.setVisible(true);
 		//canvas.add(graphic,50,50);
