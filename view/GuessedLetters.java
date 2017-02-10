@@ -5,6 +5,7 @@ import acm.graphics.GCompound;
 public class GuessedLetters extends GCompound{
 
 	char c;
+	Letter[] letters = new Letter[26];
 	
 	public GuessedLetters(int width){
 		super();
@@ -16,8 +17,13 @@ public class GuessedLetters extends GCompound{
 			x=i;
 			if(i>12) y=20;
 			if(i>12) x = i-13;
-			add(new Letter(20,20,c), spacingWidth*x, y);
+			letters[i] = new Letter(20,20,c);
+			add(letters[i], spacingWidth*x, y);
 		}
+	}
+	
+	public void greyOutLetter(char c){
+		letters[(int)c-(int)-'A'].grayOut();
 	}
 	
 }

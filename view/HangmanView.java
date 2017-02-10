@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,7 +19,7 @@ import controller.HangmanViewController;
  * @since February 7th, 2017
  */
 @SuppressWarnings("serial")
-public class HangmanView extends JFrame {
+public class HangmanView extends JFrame implements KeyListener{
 
 	private final int CANVAS_WIDTH = 600;
 	private final int CANVAS_HEIGHT = 400;
@@ -34,6 +36,7 @@ public class HangmanView extends JFrame {
 	
 	public HangmanView(HangmanViewController controller) {
 		this.controller = controller;
+		addKeyListener(this);
 		add(canvas, BorderLayout.CENTER);
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		
@@ -59,4 +62,24 @@ public class HangmanView extends JFrame {
 	public ProgressivelyDrawable getHangman() {
 	    return graphic;
 	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		controller.didGuessLetter(e.getKeyChar());
+		letters.greyOutLetter(Character.toUpperCase(e.getKeyChar()));
+		System.out.println("hello is this working");
+	}
+	
+	
 }
