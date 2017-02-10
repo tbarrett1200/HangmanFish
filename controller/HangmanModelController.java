@@ -29,4 +29,6 @@ public interface HangmanModelController {
 	 * View should be updated in this method
 	 */
 	public void didLoseGame();
+	
+	public int maximumGuesses();
 }

@@ -45,6 +45,9 @@ public class Hangman implements HangmanModelController, HangmanViewController {
 
     }
       
+    public int maximumGuesses() {
+	return view.getHangman().getMaxParts();
+    }
     //********** View Events **********//
     
     @Override
@@ -57,9 +60,20 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	model.guessLetter(c);
     }
 
+    @Override
+    public boolean hasBeenGuessed(char c) {
+	// TODO Auto-generated method stub
+	return false;
+    }
+    
     //********************************//
     
     public static void main(String[] args) {
     	new Hangman();
     }
+
+    /* (non-Javadoc)
+     * @see controller.HangmanViewController#hasBeenGuessed(char)
+     */
+
 }

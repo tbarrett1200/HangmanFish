@@ -27,8 +27,7 @@ public class HangmanView extends JFrame {
 	private JLabel subtitle = new JLabel("The Fish Edition");
 	private JLabel statusMessage = new JLabel("Guess a letter");
 	private JButton newGameButton = new JButton("New Game");
-	//private Letter a;
-	//private HangmanGraphics graphic = new HangmanGraphics(100,300);
+	private FishingPole graphic = new FishingPole(100,300);
 	
 	private HangmanViewController controller;
 	
@@ -55,4 +54,8 @@ public class HangmanView extends JFrame {
 		//canvas.add(statusMessage, CANVAS_WIDTH/2, 300); for now
 		
     }
+	
+	public ProgressivelyDrawable getHangman() {
+	    return graphic;
+	}
 }

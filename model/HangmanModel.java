@@ -9,12 +9,9 @@ import controller.HangmanModelController;
  */
 public class HangmanModel {
 
-	//the dictionary of game words
+    //the dictionary of game words
     private final Dictionary dictionary = new Dictionary("dictionary.txt");    
-   
-    //the maximum number of allowed guesses
-    private final int MAX_GUESSES = 5;    
-   
+    
     //the controller
     private final HangmanModelController controller;  
    
@@ -45,7 +42,7 @@ public class HangmanModel {
      */
     public void startNewGame() {
     	source = dictionary.getRandomWord().toUpperCase().trim();
-        guessesRemaining = MAX_GUESSES;
+        guessesRemaining = controller.maximumGuesses();
         phrase = new Phrase(source);
         guessedLetters = "";
     }
