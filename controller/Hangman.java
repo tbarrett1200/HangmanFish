@@ -20,6 +20,8 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     public Hangman() {
     	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	view.setLocationRelativeTo(null);
+    	view.setFocusable(true);
+    	view.requestFocus();
     	view.setVisible(true);
     }
     

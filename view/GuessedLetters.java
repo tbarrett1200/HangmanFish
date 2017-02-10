@@ -23,7 +23,7 @@ public class GuessedLetters extends GCompound{
 	}
 	
 	public void greyOutLetter(char c){
-		letters[(int)c-(int)-'A'].grayOut();
+		letters[(int)c-(int)'A'].grayOut();
 	}
 	
 }

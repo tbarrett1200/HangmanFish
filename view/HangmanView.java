@@ -40,7 +40,7 @@ public class HangmanView extends JFrame implements KeyListener{
 		addKeyListener(this);
 		add(canvas, BorderLayout.CENTER);
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
-		addKeyListener(this);
+		canvas.addKeyListener(this);
 		
 		//the title
 		
