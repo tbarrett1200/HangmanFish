@@ -3,3 +3,5 @@
 /HangmanView.class
 /ProgressivelyDrawable.class
 /Hangman.class
+/Letter.class
+/GuessedLetters.class

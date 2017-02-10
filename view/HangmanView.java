@@ -27,7 +27,8 @@ public class HangmanView extends JFrame {
 	private JLabel subtitle = new JLabel("The Fish Edition");
 	private JLabel statusMessage = new JLabel("Guess a letter");
 	private JButton newGameButton = new JButton("New Game");
-	private HangmanGraphics graphic = new HangmanGraphics(100,300);
+	//private Letter a;
+	//private HangmanGraphics graphic = new HangmanGraphics(100,300);
 	
 	private HangmanViewController controller;
 	
@@ -46,8 +47,11 @@ public class HangmanView extends JFrame {
 		canvas.add(title, 300,25);
 		canvas.add(subtitle,300,75);
 		add(newGameButton, BorderLayout.SOUTH);
-		graphic.setVisible(true);
-		canvas.add(graphic,50,50);
+		
+		//canvas.add(a = new Letter(20,20, 'a'), 300,110);
+		
+		//graphic.setVisible(true);
+		//canvas.add(graphic,50,50);
 		//canvas.add(statusMessage, CANVAS_WIDTH/2, 300); for now
 		
     }
