@@ -19,7 +19,8 @@ import controller.HangmanViewController;
  * @since February 7th, 2017
  */
 @SuppressWarnings("serial")
-public class HangmanView extends JFrame implements KeyListener {
+
+public class HangmanView extends JFrame implements KeyListener{
 
 	private final int CANVAS_WIDTH = 600;
 	private final int CANVAS_HEIGHT = 400;
@@ -36,6 +37,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	
 	public HangmanView(HangmanViewController controller) {
 		this.controller = controller;
+		addKeyListener(this);
 		add(canvas, BorderLayout.CENTER);
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		addKeyListener(this);
@@ -64,29 +66,23 @@ public class HangmanView extends JFrame implements KeyListener {
 	    return graphic;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-	 */
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-	    System.out.println("hi");
-	    
+		
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-	    // TODO Auto-generated method stub
-	    
+		// TODO Auto-generated method stub
+		
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-	    
+	public void keyTyped(KeyEvent e) {
+		controller.didGuessLetter(e.getKeyChar());
+		letters.greyOutLetter(Character.toUpperCase(e.getKeyChar()));
+		System.out.println("hello is this working");
 	}
+	
+	
 }
