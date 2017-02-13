@@ -32,7 +32,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     
     @Override
     public void didGuessIncorrectly() {
-    	//updateHangman(model.MAX_GUESSES, model.guessesRemaining)
+    	view.getHangman().drawNextPart();
     }
     
     @Override
