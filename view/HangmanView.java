@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 
 import acm.graphics.GCanvas;
 import controller.HangmanViewController;
+import model.Phrase;
 
 /**
  * A hang-man graphical user interface
@@ -32,6 +33,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	private JButton newGameButton = new JButton("New Game");
 	private FishingPole graphic;
 	private GuessedLetters letters = new GuessedLetters(CANVAS_WIDTH);
+	private JLabel word;
 	
 	private HangmanViewController controller;
 	
@@ -63,14 +65,17 @@ public class HangmanView extends JFrame implements KeyListener {
 		graphic.setLocation(30, 30);
 		canvas.add(graphic);
 		
-		//graphic.setVisible(true);
-		//canvas.add(graphic,50,50);
-		//canvas.add(statusMessage, CANVAS_WIDTH/2, 300); for now
-		
     }
 	
 	public ProgressivelyDrawable getHangman() {
 	    return graphic;
+	}
+	
+	public void displayPhrase(Phrase phrase){
+		if(word != null) canvas.remove(word);
+		word = new JLabel(phrase.toString());
+		word.setFont(new Font("biggerAndPrettier", Font.BOLD,35));
+		canvas.add(word,280,200);
 	}
 
 
