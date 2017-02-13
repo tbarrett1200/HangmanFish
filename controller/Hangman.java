@@ -20,8 +20,6 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     public Hangman() {
     	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	view.setLocationRelativeTo(null);
-    	view.setFocusable(true);
-    	view.requestFocus();
     	view.setVisible(true);
     }
     
@@ -34,7 +32,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     
     @Override
     public void didGuessIncorrectly() {
-    	//updateHangman(model.MAX_GUESSES, model.guessesRemaining)
+    	view.getHangman().drawNextPart();
     }
     
     @Override

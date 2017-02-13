@@ -49,7 +49,7 @@ public class Word {
 	 */
 	public boolean isComplete() {
 		for (Character c: word) {
-			if (c == '_') return false;
+			if (c == null) return false;
 		}
 		return true;
 	}
