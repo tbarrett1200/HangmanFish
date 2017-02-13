@@ -39,4 +39,10 @@ public class GuessedLetters extends GCompound{
 		letters[c-'A'].setGrayedOut(gray);
 	}
 	
+	public void reset(){
+		for(Letter l: letters){
+			l.setGrayedOut(false);
+		}
+	}
+	
 }

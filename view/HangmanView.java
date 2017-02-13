@@ -45,7 +45,7 @@ public class HangmanView extends JFrame implements KeyListener {
 		this.canvas.setFocusable(true);
 		this.controller = controller;
 		
-		//the title
+		//the titles
 		
 		title.setFont(new Font("titleFont",Font.BOLD,50));
 		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
@@ -57,6 +57,7 @@ public class HangmanView extends JFrame implements KeyListener {
 		newGameButton.addActionListener(action -> {
 		    controller.didStartGame();
 		    graphic.reset();
+		    letters.reset();
 		});
 		canvas.add(letters, 280,110);
 		

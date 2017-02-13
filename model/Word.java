@@ -63,7 +63,7 @@ public class Word {
 	public String toString() {
 		String s = "";
 		for (Character c: word) {
-			if (c==null) s+='_';
+			if (c==null) s+= '\u2610';
 			else s+= c;
 		}
 		return s;
