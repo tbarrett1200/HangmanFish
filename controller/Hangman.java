@@ -27,7 +27,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     
     @Override
     public void didGuessCorrectly() {
-    	//updateWord(model.getPhrase)
+    	view.displayPhrase(model.getPhrase());
     }
     
     @Override

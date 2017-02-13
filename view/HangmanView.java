@@ -52,7 +52,10 @@ public class HangmanView extends JFrame implements KeyListener {
 		canvas.add(title, 280,25);
 		canvas.add(subtitle,280,75);
 		add(newGameButton, BorderLayout.SOUTH);
-		
+		newGameButton.addActionListener(action -> {
+		    controller.didStartGame();
+		    graphic.reset();
+		});
 		canvas.add(letters, 280,110);
 		
 	
