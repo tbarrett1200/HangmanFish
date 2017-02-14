@@ -63,8 +63,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	
 		graphic = new FishingPole(100,300);
 		graphic.setLocation(30, 30);
-		canvas.add(graphic);
-		
+		canvas.add(graphic);		
     }
 	
 	public ProgressivelyDrawable getHangman() {

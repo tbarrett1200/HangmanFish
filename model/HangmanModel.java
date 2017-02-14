@@ -41,6 +41,7 @@ public class HangmanModel {
      * A new words is chosen and the guess count resets
      */
     public void startNewGame() {
+	
     	source = dictionary.getRandomWord().toUpperCase().trim();
         guessesRemaining = controller.maximumGuesses();
         phrase = new Phrase(source);
