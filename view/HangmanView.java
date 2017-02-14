@@ -62,15 +62,17 @@ public class HangmanView extends JFrame implements KeyListener {
 		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
 		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
 		
-		canvas.add(title, 280,25);
-		canvas.add(subtitle,280,75);
+		canvas.add(title, CANVAS_WIDTH/2,CANVAS_HEIGHT/(CANVAS_HEIGHT/6));
+		canvas.add(subtitle,CANVAS_WIDTH/2,
+				CANVAS_HEIGHT/(CANVAS_HEIGHT/6)+title.getHeight()-title.getHeight()/4);
 		add(newGameButton, BorderLayout.SOUTH);
 		newGameButton.addActionListener(action -> {
 		    controller.didStartGame();
 		    graphic.reset();
 		    letters.reset();
 		});
-		canvas.add(letters, 280,110);
+		canvas.add(letters, CANVAS_WIDTH/2, 
+				CANVAS_HEIGHT/(CANVAS_HEIGHT/6)+title.getHeight()+subtitle.getHeight()-subtitle.getHeight()/4);
 		
 	
 		graphic = new FishingPole(100,300);
