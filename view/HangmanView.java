@@ -10,9 +10,11 @@ import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import acm.graphics.GCanvas;
 import controller.HangmanViewController;
@@ -30,6 +32,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	private final int CANVAS_WIDTH = 600;
 	private final int CANVAS_HEIGHT = 400;
 	
+	private GCanvas titleCanvas = new GCanvas();
 	private GCanvas canvas = new GCanvas();
 	private JLabel title = new JLabel("HANGMAN");
 	private JLabel subtitle = new JLabel("The Fish Edition");
@@ -38,41 +41,15 @@ public class HangmanView extends JFrame implements KeyListener {
 	private FishingPole graphic;
 	private GuessedLetters letters = new GuessedLetters(CANVAS_WIDTH);
 	private GCanvas hangmanCanvas = new GCanvas();
+	private JPanel contentPanel = new JPanel();
 	private JLabel word;
 	
 	private HangmanViewController controller;
 	
 	public HangmanView(HangmanViewController controller) {
-		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
-		canvas.setBackground(Color.CYAN);
-		hangmanCanvas.setBackground(Color.BLUE);
-		hangmanCanvas.setPreferredSize(new Dimension(200,400));
-		
-		add(canvas, BorderLayout.CENTER);
-		add(hangmanCanvas, BorderLayout.WEST);
-		
-		canvas.addKeyListener(this);
-		
-		this.canvas.setFocusable(true);
 		this.controller = controller;
+		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		
-		//the titles
-		
-		title.setFont(new Font("titleFont",Font.BOLD,50));
-		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
-		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
-		
-		canvas.add(title, 280,25);
-		canvas.add(subtitle,280,75);
-		add(newGameButton, BorderLayout.SOUTH);
-		newGameButton.addActionListener(action -> {
-		    controller.didStartGame();
-		    graphic.reset();
-		    letters.reset();
-		});
-		canvas.add(letters, 280,110);
-		
-	
 		graphic = new FishingPole(100,300);
 		graphic.setLocation(0, 0);
 		
@@ -85,6 +62,40 @@ public class HangmanView extends JFrame implements KeyListener {
 		    }    
 		});
 		hangmanCanvas.add(graphic);		
+		
+		hangmanCanvas.setBackground(Color.BLUE);
+		hangmanCanvas.setPreferredSize(new Dimension(200,400));
+		add(hangmanCanvas, BorderLayout.WEST);
+		
+		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+		add(contentPanel, BorderLayout.CENTER);
+		
+		titleCanvas.setBackground(Color.CYAN);
+		contentPanel.add(titleCanvas);
+	
+		title.setFont(new Font("titleFont",Font.BOLD,50));
+		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
+		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
+		
+		titleCanvas.add(title, 50,50);
+		titleCanvas.add(subtitle,50,100);
+		
+		canvas.setBackground(Color.RED);
+		canvas.setFocusable(true);
+		canvas.addKeyListener(this);
+		canvas.add(letters, 0,0);
+		contentPanel.add(canvas);
+
+		
+		add(newGameButton, BorderLayout.SOUTH);
+		newGameButton.addActionListener(action -> {
+		    controller.didStartGame();
+		    graphic.reset();
+		    letters.reset();
+		});
+		
+	
+		
     }
 	
 	public ProgressivelyDrawable getHangman() {
@@ -95,7 +106,7 @@ public class HangmanView extends JFrame implements KeyListener {
 		if(word != null) canvas.remove(word);
 		word = new JLabel(phrase.toString());
 		word.setFont(new Font("biggerAndPrettier", Font.BOLD,35));
-		canvas.add(word,280,200);
+		canvas.add(word,0,50);
 	}
 
 
