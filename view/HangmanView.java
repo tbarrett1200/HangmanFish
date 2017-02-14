@@ -107,7 +107,15 @@ public class HangmanView extends JFrame implements KeyListener {
 		letterCanvas.add(letters, 0,0);
 		contentPanel.add(letterCanvas);
 
-		
+		wordCanvas.setBackground(Color.GREEN);
+		wordCanvas.addComponentListener(new ComponentAdapter() {
+		    @Override
+		    public void componentResized(ComponentEvent e) {
+			layoutWord();
+		    }    
+		});
+		contentPanel.add(wordCanvas);
+
 		add(newGameButton, BorderLayout.SOUTH);
 		newGameButton.addActionListener(action -> {
 		    controller.didStartGame();
@@ -124,12 +132,16 @@ public class HangmanView extends JFrame implements KeyListener {
 	}
 	
 	public void displayPhrase(Phrase phrase){
-		if(word != null) letterCanvas.remove(word);
+		if(word != null) wordCanvas.remove(word);
 		word = new JLabel(phrase.toString());
 		word.setFont(new Font("biggerAndPrettier", Font.BOLD,35));
-		letterCanvas.add(word,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+		layoutWord();
+		wordCanvas.add(word);
 	}
 
+	public void layoutWord() {
+	    word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
+	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
