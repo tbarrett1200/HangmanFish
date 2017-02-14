@@ -57,10 +57,7 @@ public class HangmanView extends JFrame implements KeyListener {
 		title.setFont(new Font("titleFont",Font.BOLD,50));
 		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
 		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
-		
-		letterCanvas.add(title, CANVAS_WIDTH/2,CANVAS_HEIGHT/(CANVAS_HEIGHT/6));
-		letterCanvas.add(subtitle,CANVAS_WIDTH/2,
-				CANVAS_HEIGHT/(CANVAS_HEIGHT/6)+title.getHeight()-title.getHeight()/4);
+
 		add(newGameButton, BorderLayout.SOUTH);
 		newGameButton.addActionListener(action -> {
 		    controller.didStartGame();
@@ -98,8 +95,14 @@ public class HangmanView extends JFrame implements KeyListener {
 		subtitle.setFont(new Font("subtitleFont", Font.ITALIC,25));
 		statusMessage.setFont(new Font("statusFont", Font.PLAIN,20));
 		
-		titleCanvas.add(title, 50,50);
-		titleCanvas.add(subtitle,50,100);
+		titleCanvas.addComponentListener(new ComponentAdapter() {
+		    @Override
+		    public void componentResized(ComponentEvent e) {
+			layoutTitle();
+		    }    
+		});
+		titleCanvas.add(title);
+		titleCanvas.add(subtitle);
 		
 		letterCanvas.setBackground(Color.RED);
 		letterCanvas.setFocusable(true);
@@ -141,6 +144,11 @@ public class HangmanView extends JFrame implements KeyListener {
 
 	public void layoutWord() {
 	    word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
+	}
+	
+	public void layoutTitle() {
+		title.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 - subtitle.getHeight());
+		subtitle.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 + title.getHeight());
 	}
 
 	@Override
