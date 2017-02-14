@@ -21,6 +21,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	view.setLocationRelativeTo(null);
     	view.setVisible(true);
+    	view.displayPhrase(model.getPhrase());
     }
     
     //********** Model Events **********//
@@ -44,7 +45,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     public void didLoseGame() {
 
     }
-      
+    @Override
     public int maximumGuesses() {
 	return view.getHangman().getMaxParts();
     }
@@ -53,6 +54,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     @Override
     public void didStartGame() {
     	model.startNewGame();
+    	view.displayPhrase(model.getPhrase());
     }
     
     @Override

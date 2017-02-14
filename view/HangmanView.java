@@ -2,7 +2,11 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -33,6 +37,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	private JButton newGameButton = new JButton("New Game");
 	private FishingPole graphic;
 	private GuessedLetters letters = new GuessedLetters(CANVAS_WIDTH);
+	private GCanvas hangmanCanvas = new GCanvas();
 	private JLabel word;
 	
 	private HangmanViewController controller;
@@ -40,8 +45,14 @@ public class HangmanView extends JFrame implements KeyListener {
 	public HangmanView(HangmanViewController controller) {
 		setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 		canvas.setBackground(Color.CYAN);
+		hangmanCanvas.setBackground(Color.BLUE);
+		hangmanCanvas.setPreferredSize(new Dimension(200,400));
+		
 		add(canvas, BorderLayout.CENTER);
+		add(hangmanCanvas, BorderLayout.WEST);
+		
 		canvas.addKeyListener(this);
+		
 		this.canvas.setFocusable(true);
 		this.controller = controller;
 		
@@ -63,9 +74,17 @@ public class HangmanView extends JFrame implements KeyListener {
 		
 	
 		graphic = new FishingPole(100,300);
-		graphic.setLocation(30, 30);
-		canvas.add(graphic);
+		graphic.setLocation(0, 0);
 		
+		hangmanCanvas.addComponentListener(new ComponentAdapter() {
+		    @Override
+		    public void componentResized(ComponentEvent e) {
+			double width = graphic.getWidth();
+			double height = graphic.getHeight();
+			graphic.setLocation(hangmanCanvas.getWidth()/2-width/2, hangmanCanvas.getHeight()/2-height/2);
+		    }    
+		});
+		hangmanCanvas.add(graphic);		
     }
 	
 	public ProgressivelyDrawable getHangman() {
