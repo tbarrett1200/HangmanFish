@@ -97,7 +97,7 @@ public class HangmanView extends JFrame implements KeyListener {
 		if(word != null) canvas.remove(word);
 		word = new JLabel(phrase.toString());
 		word.setFont(new Font("biggerAndPrettier", Font.BOLD,35));
-		canvas.add(word,280,200);
+		canvas.add(word,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
 	}
 
 
