@@ -107,7 +107,16 @@ public class HangmanView extends JFrame implements KeyListener {
 		letterCanvas.setBackground(Color.RED);
 		letterCanvas.setFocusable(true);
 		letterCanvas.addKeyListener(this);
-		letterCanvas.add(letters, 0,0);
+		
+		letterCanvas.addComponentListener(new ComponentAdapter() {
+		    @Override
+		    public void componentResized(ComponentEvent e) {
+			layoutLetter();
+		    }    
+		});
+		
+		layoutLetter();
+		letterCanvas.add(letters);
 		contentPanel.add(letterCanvas);
 
 		wordCanvas.setBackground(Color.GREEN);
@@ -149,6 +158,10 @@ public class HangmanView extends JFrame implements KeyListener {
 	public void layoutTitle() {
 		title.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 - subtitle.getHeight());
 		subtitle.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 + title.getHeight());
+	}
+	
+	public void layoutLetter() {
+		letters.setLocation(letterCanvas.getWidth()/2, letterCanvas.getHeight()/2);
 	}
 
 	@Override
