@@ -39,6 +39,24 @@ public class GuessedLetters extends GCompound{
 		letters[c-'A'].setGrayedOut(gray);
 	}
 	
+	public void resize(double width) {
+	    double letterRatio = 0.75;
+	    double letterSize = width * letterRatio;
+	    double individualLetter = letterSize/13;
+	    double letterGap = (width - letterSize)/15;
+	    
+	    for(int i = 0; i < 13; i++){
+		double x = i*letterGap + i*individualLetter;
+		double y = letterGap;
+		letters[i].setLocation(x, y);
+	    }
+	    for(int i = 0; i < 13; i++){
+		double x = i*letterGap + i*individualLetter;
+		double y = 2*letterGap + individualLetter;
+		letters[i+12].setLocation(x, y);
+	    }
+	}
+	
 	public void reset(){
 		for(Letter l: letters){
 			l.setGrayedOut(false);
