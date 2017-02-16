@@ -55,12 +55,15 @@ public class HangmanView extends JFrame implements KeyListener {
     
     private HangmanViewController controller;
 
+    private BackgroundPanel background;
+    
     public HangmanView(HangmanViewController controller) {
 	this.controller = controller;
 	setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
-	this.getContentPane().setBackground(new Color(87, 157, 228));
+	background = new BackgroundPanel("background.jpg");
+	add(background);
 	addHangman();
-	addContentPanel();
+	addContentPanel(background);
 	addStatusMessage();
 	addNewGameButton();
     }
@@ -115,6 +118,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	add(hangmanCanvas, BorderLayout.WEST);
     }
     
+    
     private void addTitle(JPanel panel) {
 	 
 	title = new JLabel("HANGMAN");
@@ -124,19 +128,21 @@ public class HangmanView extends JFrame implements KeyListener {
 	subtitle.setFont(new Font("subtitleFont", Font.ITALIC, 25));
 	panel.add(subtitle);
     }
-    private void addContentPanel() {
+    private void addContentPanel(JPanel panel) {
 	contentPanel = new JPanel();
+	contentPanel.setPreferredSize(new Dimension(600, 400));
 	contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
 	contentPanel.setOpaque(false);
 	addTitle(contentPanel);
 	addLetterCanvas(contentPanel);
 	addWordCanvas(contentPanel);
-	add(contentPanel, BorderLayout.CENTER);
+	panel.add(contentPanel);
     }
     
+
     private void addLetterCanvas(JPanel panel) {
 	letters = new GuessedLetters(700);
-	letterCanvas.setBackground(Color.RED);
+	letterCanvas.setOpaque(false);
 	letterCanvas.setFocusable(true);
 	letterCanvas.addKeyListener(this);
 	letterCanvas.add(letters, 0, 0);
@@ -151,7 +157,7 @@ public class HangmanView extends JFrame implements KeyListener {
     
     private void addWordCanvas(JPanel panel) {
 
-	wordCanvas.setBackground(Color.GREEN);
+	wordCanvas.setOpaque(false);
 	wordCanvas.addComponentListener(new ComponentAdapter() {
 	    @Override
 	    public void componentResized(ComponentEvent e) {
