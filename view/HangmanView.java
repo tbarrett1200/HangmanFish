@@ -175,7 +175,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	word = new JLabel(phrase.toString());
 	word.setFont(new Font("biggerAndPrettier", Font.BOLD, 35));
 	word.setOpaque(false);
-	word.setForeground(Color.WHITE);
+	word.setForeground(Color.white);
 	wordCanvas.add(word);
 	layoutWord();
     }
