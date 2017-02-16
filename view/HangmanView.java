@@ -127,6 +127,7 @@ public class HangmanView extends JFrame implements KeyListener {
     private void addContentPanel() {
 	contentPanel = new JPanel();
 	contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+	contentPanel.setOpaque(false);
 	addTitle(contentPanel);
 	addLetterCanvas(contentPanel);
 	addWordCanvas(contentPanel);
