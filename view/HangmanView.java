@@ -76,7 +76,8 @@ public class HangmanView extends JFrame implements KeyListener {
 	});
     }
 	public void layoutWord() {
-	    word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
+	    word.setLocation(wordCanvas.getWidth()/2 - word.getWidth()/2, 
+	    		wordCanvas.getHeight()/2 - word.getHeight()/2);
 	}
 	
 	public void layoutTitle() {
@@ -85,7 +86,8 @@ public class HangmanView extends JFrame implements KeyListener {
 	}
 	
 	public void layoutLetter() {
-		letters.setLocation(letterCanvas.getWidth()/2, letterCanvas.getHeight()/2);
+		letters.setLocation(letterCanvas.getWidth()/2 - letters.getWidth()/2, 
+				letterCanvas.getHeight()/2 - letters.getHeight()/2);
 	}
 
     private void addHangman() {
