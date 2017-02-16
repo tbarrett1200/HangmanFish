@@ -157,7 +157,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	
 	public void layoutTitle() {
 		title.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 - subtitle.getHeight());
-		subtitle.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 + title.getHeight());
+		subtitle.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 + title.getHeight()/3);
 	}
 	
 	public void layoutLetter() {
