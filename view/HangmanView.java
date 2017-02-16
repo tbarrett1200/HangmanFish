@@ -4,13 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -47,17 +52,17 @@ public class HangmanView extends JFrame implements KeyListener {
     private GuessedLetters letters;
 
     private JPanel contentPanel;
-
+    
     private HangmanViewController controller;
 
     public HangmanView(HangmanViewController controller) {
 	this.controller = controller;
 	setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+	this.getContentPane().setBackground(new Color(87, 157, 228));
 	addHangman();
 	addContentPanel();
 	addStatusMessage();
 	addNewGameButton();
-
     }
 
     private void addStatusMessage() {
@@ -66,6 +71,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	add(statusMessage, BorderLayout.NORTH);
     }
     
+
     private void addNewGameButton() {
 	newGameButton = new JButton("New Game");
 	add(newGameButton, BorderLayout.SOUTH);
@@ -104,7 +110,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	});
 	
 	hangmanCanvas.add(graphic);
-	hangmanCanvas.setBackground(Color.BLUE);
+	hangmanCanvas.setOpaque(false);
 	hangmanCanvas.setPreferredSize(new Dimension(200, 400));
 	add(hangmanCanvas, BorderLayout.WEST);
     }
