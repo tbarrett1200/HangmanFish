@@ -53,7 +53,7 @@ public class GuessedLetters extends GCompound{
 	    for(int i = 0; i < 13; i++){
 		double x = i*letterGap + i*individualLetter;
 		double y = 2*letterGap + individualLetter;
-		letters[i+12].setLocation(x, y);
+		letters[i+13].setLocation(x, y);
 	    }
 	}
 	

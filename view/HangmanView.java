@@ -4,11 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -34,7 +32,7 @@ public class HangmanView extends JFrame implements KeyListener {
 
     private final int CANVAS_WIDTH = 600;
     private final int CANVAS_HEIGHT = 400;
-
+    
     private GCanvas titleCanvas = new GCanvas();
     private GCanvas letterCanvas = new GCanvas();
     private GCanvas hangmanCanvas = new GCanvas();
@@ -77,6 +75,18 @@ public class HangmanView extends JFrame implements KeyListener {
 	    letters.reset();
 	});
     }
+	public void layoutWord() {
+	    word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
+	}
+	
+	public void layoutTitle() {
+		title.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 - subtitle.getHeight());
+		subtitle.setLocation(titleCanvas.getWidth()/2, titleCanvas.getHeight()/2 + title.getHeight()/3);
+	}
+	
+	public void layoutLetter() {
+		letters.setLocation(letterCanvas.getWidth()/2, letterCanvas.getHeight()/2);
+	}
 
     private void addHangman() {
 	graphic = new FishingPole(100, 300);
@@ -152,14 +162,6 @@ public class HangmanView extends JFrame implements KeyListener {
 	word.setFont(new Font("biggerAndPrettier", Font.BOLD, 35));
 	wordCanvas.add(word);
 	layoutWord();
-    }
-
-    public void layoutWord() {
-	double halfCanvasWidth = wordCanvas.getWidth() / 2;
-	double halfCanvasHeight = wordCanvas.getHeight() / 2;
-	double halfWordWidth = word.getWidth() / 2;
-	double halfWordHeight = word.getHeight() / 2;
-	word.setLocation((int) (halfCanvasWidth - halfWordWidth), (int) (halfCanvasHeight - halfWordHeight));
     }
 
     @Override
