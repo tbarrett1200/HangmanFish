@@ -76,7 +76,7 @@ public class HangmanView extends JFrame implements KeyListener {
 	});
     }
 	public void layoutWord() {
-	    word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
+	    if (word != null) word.setLocation(wordCanvas.getWidth()/2,wordCanvas.getHeight()/2);
 	}
 	
 	public void layoutTitle() {
@@ -108,7 +108,7 @@ public class HangmanView extends JFrame implements KeyListener {
     }
     
     private void addTitle(JPanel panel) {
-	
+	 
 	title = new JLabel("HANGMAN");
 	title.setFont(new Font("titleFont", Font.BOLD, 50));
 	panel.add(title);
@@ -156,8 +156,7 @@ public class HangmanView extends JFrame implements KeyListener {
     }
 
     public void displayPhrase(Phrase phrase) {
-	if (word != null)
-	    wordCanvas.remove(word);
+	if (word != null) wordCanvas.remove(word);
 	word = new JLabel(phrase.toString());
 	word.setFont(new Font("biggerAndPrettier", Font.BOLD, 35));
 	wordCanvas.add(word);
