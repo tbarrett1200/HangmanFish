@@ -68,6 +68,8 @@ public class HangmanView extends JFrame implements KeyListener {
     private void addStatusMessage() {
 	statusMessage = new JLabel("Guess a letter");
 	statusMessage.setFont(new Font("statusFont", Font.PLAIN, 20));
+	statusMessage.setOpaque(false);
+	statusMessage.setForeground(Color.WHITE);
 	add(statusMessage, BorderLayout.NORTH);
     }
     
@@ -119,9 +121,13 @@ public class HangmanView extends JFrame implements KeyListener {
 	 
 	title = new JLabel("HANGMAN");
 	title.setFont(new Font("titleFont", Font.BOLD, 50));
+	title.setOpaque(false);
+	title.setForeground(Color.WHITE);
 	panel.add(title);
 	subtitle = new JLabel("The Fish Edition");
 	subtitle.setFont(new Font("subtitleFont", Font.ITALIC, 25));
+	subtitle.setOpaque(false);
+	subtitle.setForeground(Color.WHITE);
 	panel.add(subtitle);
     }
     private void addContentPanel() {
@@ -136,7 +142,7 @@ public class HangmanView extends JFrame implements KeyListener {
     
     private void addLetterCanvas(JPanel panel) {
 	letters = new GuessedLetters(700);
-	letterCanvas.setBackground(Color.RED);
+	letterCanvas.setBackground(new Color(87, 157, 228));
 	letterCanvas.setFocusable(true);
 	letterCanvas.addKeyListener(this);
 	letterCanvas.add(letters, 0, 0);
@@ -151,7 +157,7 @@ public class HangmanView extends JFrame implements KeyListener {
     
     private void addWordCanvas(JPanel panel) {
 
-	wordCanvas.setBackground(Color.GREEN);
+	wordCanvas.setBackground(new Color(87, 157, 228));
 	wordCanvas.addComponentListener(new ComponentAdapter() {
 	    @Override
 	    public void componentResized(ComponentEvent e) {
@@ -168,6 +174,8 @@ public class HangmanView extends JFrame implements KeyListener {
 	if (word != null) wordCanvas.remove(word);
 	word = new JLabel(phrase.toString());
 	word.setFont(new Font("biggerAndPrettier", Font.BOLD, 35));
+	word.setOpaque(false);
+	word.setForeground(Color.WHITE);
 	wordCanvas.add(word);
 	layoutWord();
     }
