@@ -10,13 +10,13 @@ public interface HangmanModelController {
 	 * Called when a correct guess is made.
 	 * View should be updated in this method
 	 */
-	public void didGuessCorrectly();  
+	public void didGuessCorrectly(char c);  
 	
 	/**
 	 * Called when a incorrect guess is made.
 	 * View should be updated in this method
 	 */
-	public void didGuessIncorrectly();
+	public void didGuessIncorrectly(char c);
 	
 	/**
 	 * Called when the hang-man game is won.

@@ -17,17 +17,15 @@ public class GuessedLetters extends GCompound{
 	 * Creates the GuessedLetters with the given width
 	 * @param width the width in pixels
 	 */
-	public GuessedLetters(int width){
+	public GuessedLetters(int width, int height){
 		int spacingWidth = width / 26;
 		int x = 0, y = 0;
 		for(int i = 0; i < 26; i++){
 			char c = (char) ('A' + i);
-			x = i;
-			if(i > 12) y = 20;
-			if(i > 12) x = i-13;
 			letters[i] = new Letter(20,20,c);
-			add(letters[i], spacingWidth*x, y);
+			add(letters[i]);
 		}
+		resize(width);
 	}
 	
 	/**
@@ -47,12 +45,12 @@ public class GuessedLetters extends GCompound{
 	    
 	    for(int i = 0; i < 13; i++){
 		double x = i*letterGap + i*individualLetter;
-		double y = letterGap;
+		double y = 0;
 		letters[i].setLocation(x, y);
 	    }
 	    for(int i = 0; i < 13; i++){
 		double x = i*letterGap + i*individualLetter;
-		double y = 2*letterGap + individualLetter;
+		double y = letterGap + individualLetter;
 		letters[i+13].setLocation(x, y);
 	    }
 	}
