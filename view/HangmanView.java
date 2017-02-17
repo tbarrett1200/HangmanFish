@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import controller.HangmanViewController;
 
@@ -31,6 +32,7 @@ public class HangmanView extends JFrame implements KeyListener {
     public HangmanPanel hangman;
     private JLabel message;
     private JButton newGameButton;
+    private JLabel winPercentage;
     private HangmanViewController controller;
 
     private BackgroundPanel background;
@@ -52,9 +54,12 @@ public class HangmanView extends JFrame implements KeyListener {
              }
     	});
     
+    	JPanel south = new JPanel();
+    	add(south, BorderLayout.SOUTH);
 
     	addStatusMessage();
-    	addNewGameButton();
+    	addWinPercentageLabel(south);
+    	addNewGameButton(south);
     }
     
     public void revealWord(String s) {
@@ -69,10 +74,14 @@ public class HangmanView extends JFrame implements KeyListener {
 		add(message, BorderLayout.NORTH);
     }
     
+    private void addWinPercentageLabel(JPanel p){
+    	winPercentage = new JLabel("Percent wins: " + controller.winPercentage());
+    	p.add(winPercentage);
+    }
 
-    private void addNewGameButton() {
+    private void addNewGameButton(JPanel p) {
     	newGameButton = new JButton("New Game");
-    	add(newGameButton, BorderLayout.SOUTH);
+    	p.add(newGameButton);
     	newGameButton.addActionListener(action -> {
     		controller.didStartGame();
     		hangman.reset();

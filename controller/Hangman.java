@@ -90,5 +90,4 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	new Hangman();
     }
 
- 
 }
