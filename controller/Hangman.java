@@ -1,7 +1,10 @@
 package controller;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 import model.HangmanModel;
+import model.Phrase;
 import view.HangmanView;
 
 /**
@@ -20,6 +23,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     public Hangman() {
     	view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	view.setLocationRelativeTo(null);
+    	view.setMinimumSize(new Dimension(600, 400));
     	view.setVisible(true);
     	view.displayPhrase(model.getPhrase());
     }
@@ -27,34 +31,37 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     //********** Model Events **********//
     
     @Override
-    public void didGuessCorrectly() {
+    public void didGuessCorrectly(char c) {
     	view.displayPhrase(model.getPhrase());
+		view.hangman.letters.guess(c);
     }
     
     @Override
-    public void didGuessIncorrectly() {
+    public void didGuessIncorrectly(char c) {
     	view.getHangman().drawNextPart();
+		view.hangman.letters.guess(c);
     }
     
     @Override
     public void didWinGame() {
-    	
+    	view.displayWinMessage();
     }
     
     @Override
     public void didLoseGame() {
-
+    	view.displayLoseMessage();
     }
+    
     @Override
     public int maximumGuesses() {
-	return view.getHangman().getMaxParts();
+    	return view.getHangman().getMaxParts();
     }
+    
     //********** View Events **********//
     
     @Override
     public void didStartGame() {
     	model.startNewGame();
-    	view.displayPhrase(model.getPhrase());
     }
     
     @Override
@@ -63,9 +70,8 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     }
 
     @Override
-    public boolean hasBeenGuessed(char c) {
-	// TODO Auto-generated method stub
-	return false;
+    public Phrase getPhrase() {
+    	return model.getPhrase();
     }
     
     //********************************//
@@ -74,8 +80,5 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	new Hangman();
     }
 
-    /* (non-Javadoc)
-     * @see controller.HangmanViewController#hasBeenGuessed(char)
-     */
 
 }

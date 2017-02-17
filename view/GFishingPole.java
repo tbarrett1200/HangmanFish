@@ -7,12 +7,12 @@ import acm.graphics.GImage;
 import acm.graphics.GLine;
 
 /**
- * A Graphical representation of the hangman character
- * 
- * @author Thomas Barrett
+ * A graphical fishing pole that reels in a fish
+ * @author Thomas Barrett and Serena Riback
+ * @since 17 February 201
  */
 @SuppressWarnings("serial")
-public class FishingPole extends GCompound implements ProgressivelyDrawable {
+public class GFishingPole extends GCompound implements ProgressivelyDrawable {
 
 	private GImage pole;
 	private GImage fish;
@@ -26,7 +26,7 @@ public class FishingPole extends GCompound implements ProgressivelyDrawable {
 	private final double POLE_TIP_Y;
 	private int partNum = 0;
 
-	public FishingPole(int width, int height) {
+	public GFishingPole(int width, int height) {
 		FISH_MIN_Y = height * POLE_TIP + 0.6 * height;
 
 		pole = new GImage("pole.png");
@@ -62,6 +62,7 @@ public class FishingPole extends GCompound implements ProgressivelyDrawable {
 	public void reset() {
 		fish.setLocation(pole.getWidth() - fish.getWidth() / 2, pole.getHeight() * POLE_TIP + 0.6 * pole.getHeight());
 		line.setEndPoint(POLE_TIP_X, fish.getY());
+		partNum = 0;
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package controller;
 /**
  * The methods needed to be implemented in order to control a hang-man game model
- * @author Thomas Barrett
+ * @author Thomas Barrett and Serena Riback
  * @since February 8th, 2017
  */
 public interface HangmanModelController {
@@ -10,13 +10,13 @@ public interface HangmanModelController {
 	 * Called when a correct guess is made.
 	 * View should be updated in this method
 	 */
-	public void didGuessCorrectly();  
+	public void didGuessCorrectly(char c);  
 	
 	/**
 	 * Called when a incorrect guess is made.
 	 * View should be updated in this method
 	 */
-	public void didGuessIncorrectly();
+	public void didGuessIncorrectly(char c);
 	
 	/**
 	 * Called when the hang-man game is won.

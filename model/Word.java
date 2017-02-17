@@ -2,7 +2,7 @@ package model;
 /**
  * A single word to be used in a hang-man game. 
  * Its letters are revealed after they are guessed
- * @author Thomas Barrett
+ * @author Thomas Barrett and Serena Riback
  * @since February 7th 2017
  */
 public class Word {

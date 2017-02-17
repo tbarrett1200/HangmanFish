@@ -4,7 +4,7 @@ import controller.HangmanModelController;
 
 /**
  * A hangman game model
- * @author Thomas Barrett
+ * @author Thomas Barrett and Serena Riback
  * @since February 7, 2017
  */
 public class HangmanModel {
@@ -53,17 +53,20 @@ public class HangmanModel {
      * @param c the letter
      */
     public void guessLetter(char c) {
+    	
+    	if (hasWon() || hasLost()) return;
+    	
     	c = Character.toUpperCase(c);
     	if (isLetterAvailable(c)) {
     		guessedLetters += c;
     		
     		if (phrase.guessLetter(c)) {
-    			controller.didGuessCorrectly();
+    			controller.didGuessCorrectly(c);
     			if (hasWon()) controller.didWinGame();
     		}
     		else {
     			guessesRemaining--;
-    			controller.didGuessIncorrectly();
+    			controller.didGuessIncorrectly(c);
     			if (hasLost()) controller.didLoseGame();
     		}
     	}
