@@ -4,7 +4,7 @@ import controller.HangmanModelController;
 
 /**
  * A hangman game model
- * @author Thomas Barrett
+ * @author Thomas Barrett and Serena Riback
  * @since February 7, 2017
  */
 public class HangmanModel {

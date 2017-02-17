@@ -1,7 +1,7 @@
 package controller;
 /**
  * The methods needed to be implemented in order to control a hang-man game model
- * @author Thomas Barrett
+ * @author Thomas Barrett and Serena Riback
  * @since February 8th, 2017
  */
 public interface HangmanModelController {

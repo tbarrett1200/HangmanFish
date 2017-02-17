@@ -10,11 +10,11 @@ import acm.graphics.GOval;
 /**
  * A bubbled letter on the screen that represents 
  * whether or not it has already been guessed
- * @author Serena Riback
+ * @author Thomas Barrett and Serena Riback
  * @since February 8th, 2017
  */
 @SuppressWarnings("serial")
-public class Letter extends GCompound {
+public class GLetter extends GCompound {
 
 	private GOval bubble;
 	private GLabel letter;
@@ -25,7 +25,7 @@ public class Letter extends GCompound {
 	 * @param height the height in pixels
 	 * @param l	the letter
 	 */
-	public Letter(int width, int height, char l){
+	public GLetter(int width, int height, char l){
 		
 		bubble = new GOval(width, height);
 		bubble.setColor(Color.BLACK);

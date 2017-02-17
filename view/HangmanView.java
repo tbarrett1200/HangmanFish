@@ -2,36 +2,23 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FocusTraversalPolicy;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import acm.graphics.GCanvas;
 import controller.HangmanViewController;
+
 import model.Phrase;
 
 /**
  * A hang-man graphical user interface
  * 
- * @author Serena Riback
+ * @author Thomas Barrett and Serena Riback
  * @since February 7th, 2017
  */
 @SuppressWarnings("serial")
@@ -102,24 +89,26 @@ public class HangmanView extends JFrame implements KeyListener {
 	}
 
 	public ProgressivelyDrawable getHangman() {
-		return hangman.pole.fishingPole;
+		return hangman.pole.getProgressivelyDrawable();
 	}
 	
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-
-	public void didLoseGame() {
+   
+	public void displayLoseMessage() {
 		message.setText("You Lose!");
 		
 	}
 	
-	public void didWinGame() {
+	public void displayWinMessage() {
 		message.setText("You Win!");		
 	}
+	
+	@Override
+	  public void keyPressed(KeyEvent e) {
+	}
+
+	@Override
+	  public void keyReleased(KeyEvent e) {
+	 }
+
 }

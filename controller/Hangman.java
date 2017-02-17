@@ -26,8 +26,6 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	view.setMinimumSize(new Dimension(600, 400));
     	view.setVisible(true);
     	view.displayPhrase(model.getPhrase());
-    	
- 
     }
     
     //********** Model Events **********//
@@ -35,28 +33,30 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     @Override
     public void didGuessCorrectly(char c) {
     	view.displayPhrase(model.getPhrase());
-		view.hangman.letters.letters.setGrayedOut(c, true);
+		view.hangman.letters.guess(c);
     }
     
     @Override
     public void didGuessIncorrectly(char c) {
     	view.getHangman().drawNextPart();
-		view.hangman.letters.letters.setGrayedOut(c, true);
+		view.hangman.letters.guess(c);
     }
     
     @Override
     public void didWinGame() {
-    	view.didWinGame();
+    	view.displayWinMessage();
     }
     
     @Override
     public void didLoseGame() {
-    	view.didLoseGame();
+    	view.displayLoseMessage();
     }
+    
     @Override
     public int maximumGuesses() {
-	return view.getHangman().getMaxParts();
+    	return view.getHangman().getMaxParts();
     }
+    
     //********** View Events **********//
     
     @Override
@@ -73,6 +73,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     public Phrase getPhrase() {
     	return model.getPhrase();
     }
+    
     //********************************//
     
     public static void main(String[] args) {

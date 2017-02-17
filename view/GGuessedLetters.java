@@ -5,24 +5,22 @@ import acm.graphics.GCompound;
 /**
  * A graphics object which displays all the letters in the alphabet, 
  * and whether or not they have been guessed
- * @author Serena Riback
+ * @author Thomas Barrett and Serena Riback
  * @since February 8th, 2017
  */
 @SuppressWarnings("serial")
-public class GuessedLetters extends GCompound{
+public class GGuessedLetters extends GCompound{
 
-	Letter[] letters = new Letter[26];
+	GLetter[] letters = new GLetter[26];
 	
 	/**
 	 * Creates the GuessedLetters with the given width
 	 * @param width the width in pixels
 	 */
-	public GuessedLetters(int width, int height){
-		int spacingWidth = width / 26;
-		int x = 0, y = 0;
+	public GGuessedLetters(int width, int height){
 		for(int i = 0; i < 26; i++){
 			char c = (char) ('A' + i);
-			letters[i] = new Letter(20,20,c);
+			letters[i] = new GLetter(20,20,c);
 			add(letters[i]);
 		}
 		resize(width);
@@ -56,7 +54,7 @@ public class GuessedLetters extends GCompound{
 	}
 	
 	public void reset(){
-		for(Letter l: letters){
+		for(GLetter l: letters){
 			l.setGrayedOut(false);
 		}
 	}

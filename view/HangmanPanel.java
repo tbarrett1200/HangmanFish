@@ -6,6 +6,11 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
+/**
+ * A JPanel with a background image that lays out child JPanels
+ * @author Thomas Barrett and Serena Riback
+ * @since 17 February 2017
+ */
 @SuppressWarnings("serial")
 public class HangmanPanel extends BackgroundPanel {
 
@@ -60,7 +65,7 @@ public class HangmanPanel extends BackgroundPanel {
 	}
 
 	public void reset() {
-		letters.letters.reset();
-		pole.fishingPole.reset();
+		letters.reset();
+		pole.reset();
 	}	
 }
