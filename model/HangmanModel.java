@@ -27,6 +27,9 @@ public class HangmanModel {
     //all letters that have already been guessed
     private String guessedLetters;
     
+    private int numWins = 0;
+    private int numGames = 0;
+    
     /**
      * Constructs a new Hang-man game with the given controller
      * @param controller
@@ -62,12 +65,19 @@ public class HangmanModel {
     		
     		if (phrase.guessLetter(c)) {
     			controller.didGuessCorrectly(c);
-    			if (hasWon()) controller.didWinGame();
+    			if (hasWon()) {
+    			    controller.didWinGame();
+    			    numWins++;
+    			    numGames++;
+    			}
     		}
     		else {
     			guessesRemaining--;
     			controller.didGuessIncorrectly(c);
-    			if (hasLost()) controller.didLoseGame();
+    			if (hasLost()) {
+    			    controller.didLoseGame();
+    			    numGames++;
+    			}
     		}
     	}
     }
@@ -114,5 +124,13 @@ public class HangmanModel {
      */
     public boolean hasWon() {
     	return phrase.isComplete();
+    }
+
+    /**
+     * Returns the win percentage
+     * @return
+     */
+    public double getWinPercentage() {
+	return numGames > 0 ? (double) numWins / numGames : 0;
     }
 }

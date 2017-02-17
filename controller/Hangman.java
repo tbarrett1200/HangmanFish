@@ -80,12 +80,15 @@ public class Hangman implements HangmanModelController, HangmanViewController {
 	return model.getWord();
     }
 
+    @Override
+    public double winPercentage() {
+	return model.getWinPercentage();
+    }
     //********************************//
     
     public static void main(String[] args) {
     	new Hangman();
     }
 
-
-
+ 
 }
