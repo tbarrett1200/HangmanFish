@@ -86,6 +86,10 @@ public class HangmanModel {
     	return guessesRemaining;
     }
     
+    public String getWord() {
+	return source;
+    }
+    
     /**
      * Checks whether or not a letter has already been guessed
      * @param c the letter

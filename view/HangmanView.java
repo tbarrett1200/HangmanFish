@@ -56,6 +56,10 @@ public class HangmanView extends JFrame implements KeyListener {
     	addStatusMessage();
     	addNewGameButton();
     }
+    
+    public void revealWord(String s) {
+	hangman.word.setText(s);
+    }
 
     private void addStatusMessage() {
     	message = new JLabel("Guess a letter");

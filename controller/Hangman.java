@@ -50,6 +50,7 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     @Override
     public void didLoseGame() {
     	view.displayLoseMessage();
+    	view.revealWord(model.getWord());
     }
     
     @Override
@@ -74,11 +75,17 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	return model.getPhrase();
     }
     
+    @Override
+    public String revealWord() {
+	return model.getWord();
+    }
+
     //********************************//
     
     public static void main(String[] args) {
     	new Hangman();
     }
+
 
 
 }

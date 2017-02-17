@@ -25,4 +25,5 @@ public interface HangmanViewController {
 	  */
 	 public Phrase getPhrase();
 
+	 public String revealWord();
 }
