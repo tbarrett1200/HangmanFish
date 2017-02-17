@@ -66,17 +66,17 @@ public class HangmanModel {
     		if (phrase.guessLetter(c)) {
     			controller.didGuessCorrectly(c);
     			if (hasWon()) {
-    			    controller.didWinGame();
     			    numWins++;
-    			    numGames++;
+			    numGames++;
+    			    controller.didWinGame();  
     			}
     		}
     		else {
     			guessesRemaining--;
     			controller.didGuessIncorrectly(c);
     			if (hasLost()) {
-    			    controller.didLoseGame();
     			    numGames++;
+    			    controller.didLoseGame();
     			}
     		}
     	}

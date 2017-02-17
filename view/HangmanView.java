@@ -62,6 +62,10 @@ public class HangmanView extends JFrame implements KeyListener {
     	addNewGameButton(south);
     }
     
+    public void updateWinPercentage() {
+	winPercentage.setText("Percent wins: " + controller.winPercentage()*100 + "%");
+    }
+    
     public void revealWord(String s) {
 	hangman.word.setText(s);
     }
@@ -75,7 +79,7 @@ public class HangmanView extends JFrame implements KeyListener {
     }
     
     private void addWinPercentageLabel(JPanel p){
-    	winPercentage = new JLabel("Percent wins: " + controller.winPercentage());
+    	winPercentage = new JLabel("Percent wins: 0%");
     	p.add(winPercentage);
     }
 

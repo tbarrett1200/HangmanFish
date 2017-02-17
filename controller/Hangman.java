@@ -45,12 +45,14 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     @Override
     public void didWinGame() {
     	view.displayWinMessage();
+    	view.updateWinPercentage();
     }
     
     @Override
     public void didLoseGame() {
     	view.displayLoseMessage();
     	view.revealWord(model.getWord());
+    	view.updateWinPercentage();
     }
     
     @Override
