@@ -86,6 +86,12 @@ public class Hangman implements HangmanModelController, HangmanViewController {
     	new Hangman();
     }
 
+	@Override
+	public double winPercentage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 }
